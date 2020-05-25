@@ -1,11 +1,9 @@
-###  1. What is the difference between Component and PureComponent? give an
-example where it might break my app.
+###  1. What is the difference between Component and PureComponent? give an example where it might break my app.
 
 The difference is that PureComponent handles shouldComponentUpdate method by itself.
 The example when it breaks is mutating the the props in parent component. It would not detect the change as it only does shallow compare, and if reference does not change - it would not rerender.
 
-###  2. Context + ShouldComponentUpdate might be dangerous. Can think of
-why is that?
+###  2. Context + ShouldComponentUpdate might be dangerous. Can think of why is that?
 
 If i understood the question correctly, the danger would be that poorly written shouldComponentUpdate may stop re-rendering the component (and it's children) on context change. We need to consider changes in context when deciding on returning false from shouldComponentUpdate.
 
